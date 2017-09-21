@@ -435,6 +435,6 @@ byte getNthByte32(uint32_t num, unsigned int n) {
 }
 
 int main() {
-    std::cout << "Hello, World!" << std::endl;
+    //here to stop clion complaining, may turn into a library at a later date
     return 0;
 }
