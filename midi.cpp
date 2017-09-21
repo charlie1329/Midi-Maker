@@ -11,7 +11,6 @@
 #include <algorithm>
 #include "midi.h"
 
-typedef std::vector<byte>::iterator vecItr;
 
 //--MIDI CHUNK CLASS IMPLEMENTATIONS--
 
