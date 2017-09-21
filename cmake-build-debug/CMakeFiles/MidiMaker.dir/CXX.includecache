@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/charl/CLionProjects/MidiMaker/midi.cpp
+iostream
+-
+utility
+-
+algorithm
+-
+midi.h
+C:/Users/charl/CLionProjects/MidiMaker/midi.h
+
+C:/Users/charl/CLionProjects/MidiMaker/midi.h
+vector
+-
+fstream
+-
+
