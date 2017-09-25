@@ -122,32 +122,59 @@ MidiMaker/fast:
 	$(MAKE) -f CMakeFiles\MidiMaker.dir\build.make CMakeFiles/MidiMaker.dir/build
 .PHONY : MidiMaker/fast
 
-midi.obj: midi.cpp.obj
+src/midi.obj: src/midi.cpp.obj
 
-.PHONY : midi.obj
+.PHONY : src/midi.obj
 
 # target to build an object file
-midi.cpp.obj:
-	$(MAKE) -f CMakeFiles\MidiMaker.dir\build.make CMakeFiles/MidiMaker.dir/midi.cpp.obj
-.PHONY : midi.cpp.obj
+src/midi.cpp.obj:
+	$(MAKE) -f CMakeFiles\MidiMaker.dir\build.make CMakeFiles/MidiMaker.dir/src/midi.cpp.obj
+.PHONY : src/midi.cpp.obj
 
-midi.i: midi.cpp.i
+src/midi.i: src/midi.cpp.i
 
-.PHONY : midi.i
+.PHONY : src/midi.i
 
 # target to preprocess a source file
-midi.cpp.i:
-	$(MAKE) -f CMakeFiles\MidiMaker.dir\build.make CMakeFiles/MidiMaker.dir/midi.cpp.i
-.PHONY : midi.cpp.i
+src/midi.cpp.i:
+	$(MAKE) -f CMakeFiles\MidiMaker.dir\build.make CMakeFiles/MidiMaker.dir/src/midi.cpp.i
+.PHONY : src/midi.cpp.i
 
-midi.s: midi.cpp.s
+src/midi.s: src/midi.cpp.s
 
-.PHONY : midi.s
+.PHONY : src/midi.s
 
 # target to generate assembly for a file
-midi.cpp.s:
-	$(MAKE) -f CMakeFiles\MidiMaker.dir\build.make CMakeFiles/MidiMaker.dir/midi.cpp.s
-.PHONY : midi.cpp.s
+src/midi.cpp.s:
+	$(MAKE) -f CMakeFiles\MidiMaker.dir\build.make CMakeFiles/MidiMaker.dir/src/midi.cpp.s
+.PHONY : src/midi.cpp.s
+
+test/testMidi.obj: test/testMidi.cpp.obj
+
+.PHONY : test/testMidi.obj
+
+# target to build an object file
+test/testMidi.cpp.obj:
+	$(MAKE) -f CMakeFiles\MidiMaker.dir\build.make CMakeFiles/MidiMaker.dir/test/testMidi.cpp.obj
+.PHONY : test/testMidi.cpp.obj
+
+test/testMidi.i: test/testMidi.cpp.i
+
+.PHONY : test/testMidi.i
+
+# target to preprocess a source file
+test/testMidi.cpp.i:
+	$(MAKE) -f CMakeFiles\MidiMaker.dir\build.make CMakeFiles/MidiMaker.dir/test/testMidi.cpp.i
+.PHONY : test/testMidi.cpp.i
+
+test/testMidi.s: test/testMidi.cpp.s
+
+.PHONY : test/testMidi.s
+
+# target to generate assembly for a file
+test/testMidi.cpp.s:
+	$(MAKE) -f CMakeFiles\MidiMaker.dir\build.make CMakeFiles/MidiMaker.dir/test/testMidi.cpp.s
+.PHONY : test/testMidi.cpp.s
 
 # Help Target
 help:
@@ -158,9 +185,12 @@ help:
 	@echo ... MidiMaker
 	@echo ... edit_cache
 	@echo ... rebuild_cache
-	@echo ... midi.obj
-	@echo ... midi.i
-	@echo ... midi.s
+	@echo ... src/midi.obj
+	@echo ... src/midi.i
+	@echo ... src/midi.s
+	@echo ... test/testMidi.obj
+	@echo ... test/testMidi.i
+	@echo ... test/testMidi.s
 .PHONY : help
 
 

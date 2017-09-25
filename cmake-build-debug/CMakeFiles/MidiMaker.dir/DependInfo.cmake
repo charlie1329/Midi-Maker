@@ -4,7 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "C:/Users/charl/CLionProjects/MidiMaker/midi.cpp" "C:/Users/charl/CLionProjects/MidiMaker/cmake-build-debug/CMakeFiles/MidiMaker.dir/midi.cpp.obj"
+  "C:/Users/charl/CLionProjects/MidiMaker/src/midi.cpp" "C:/Users/charl/CLionProjects/MidiMaker/cmake-build-debug/CMakeFiles/MidiMaker.dir/src/midi.cpp.obj"
+  "C:/Users/charl/CLionProjects/MidiMaker/test/testMidi.cpp" "C:/Users/charl/CLionProjects/MidiMaker/cmake-build-debug/CMakeFiles/MidiMaker.dir/test/testMidi.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

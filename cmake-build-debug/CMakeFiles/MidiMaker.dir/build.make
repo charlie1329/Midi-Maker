@@ -56,43 +56,69 @@ include CMakeFiles/MidiMaker.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/MidiMaker.dir/flags.make
 
-CMakeFiles/MidiMaker.dir/midi.cpp.obj: CMakeFiles/MidiMaker.dir/flags.make
-CMakeFiles/MidiMaker.dir/midi.cpp.obj: ../midi.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\charl\CLionProjects\MidiMaker\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/MidiMaker.dir/midi.cpp.obj"
-	C:\PROGRA~2\MINGW-~1\I686-6~1.0-P\mingw32\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\MidiMaker.dir\midi.cpp.obj -c C:\Users\charl\CLionProjects\MidiMaker\midi.cpp
+CMakeFiles/MidiMaker.dir/src/midi.cpp.obj: CMakeFiles/MidiMaker.dir/flags.make
+CMakeFiles/MidiMaker.dir/src/midi.cpp.obj: ../src/midi.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\charl\CLionProjects\MidiMaker\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/MidiMaker.dir/src/midi.cpp.obj"
+	C:\PROGRA~2\MINGW-~1\I686-6~1.0-P\mingw32\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\MidiMaker.dir\src\midi.cpp.obj -c C:\Users\charl\CLionProjects\MidiMaker\src\midi.cpp
 
-CMakeFiles/MidiMaker.dir/midi.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/MidiMaker.dir/midi.cpp.i"
-	C:\PROGRA~2\MINGW-~1\I686-6~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\charl\CLionProjects\MidiMaker\midi.cpp > CMakeFiles\MidiMaker.dir\midi.cpp.i
+CMakeFiles/MidiMaker.dir/src/midi.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/MidiMaker.dir/src/midi.cpp.i"
+	C:\PROGRA~2\MINGW-~1\I686-6~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\charl\CLionProjects\MidiMaker\src\midi.cpp > CMakeFiles\MidiMaker.dir\src\midi.cpp.i
 
-CMakeFiles/MidiMaker.dir/midi.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MidiMaker.dir/midi.cpp.s"
-	C:\PROGRA~2\MINGW-~1\I686-6~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\charl\CLionProjects\MidiMaker\midi.cpp -o CMakeFiles\MidiMaker.dir\midi.cpp.s
+CMakeFiles/MidiMaker.dir/src/midi.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MidiMaker.dir/src/midi.cpp.s"
+	C:\PROGRA~2\MINGW-~1\I686-6~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\charl\CLionProjects\MidiMaker\src\midi.cpp -o CMakeFiles\MidiMaker.dir\src\midi.cpp.s
 
-CMakeFiles/MidiMaker.dir/midi.cpp.obj.requires:
+CMakeFiles/MidiMaker.dir/src/midi.cpp.obj.requires:
 
-.PHONY : CMakeFiles/MidiMaker.dir/midi.cpp.obj.requires
+.PHONY : CMakeFiles/MidiMaker.dir/src/midi.cpp.obj.requires
 
-CMakeFiles/MidiMaker.dir/midi.cpp.obj.provides: CMakeFiles/MidiMaker.dir/midi.cpp.obj.requires
-	$(MAKE) -f CMakeFiles\MidiMaker.dir\build.make CMakeFiles/MidiMaker.dir/midi.cpp.obj.provides.build
-.PHONY : CMakeFiles/MidiMaker.dir/midi.cpp.obj.provides
+CMakeFiles/MidiMaker.dir/src/midi.cpp.obj.provides: CMakeFiles/MidiMaker.dir/src/midi.cpp.obj.requires
+	$(MAKE) -f CMakeFiles\MidiMaker.dir\build.make CMakeFiles/MidiMaker.dir/src/midi.cpp.obj.provides.build
+.PHONY : CMakeFiles/MidiMaker.dir/src/midi.cpp.obj.provides
 
-CMakeFiles/MidiMaker.dir/midi.cpp.obj.provides.build: CMakeFiles/MidiMaker.dir/midi.cpp.obj
+CMakeFiles/MidiMaker.dir/src/midi.cpp.obj.provides.build: CMakeFiles/MidiMaker.dir/src/midi.cpp.obj
+
+
+CMakeFiles/MidiMaker.dir/test/testMidi.cpp.obj: CMakeFiles/MidiMaker.dir/flags.make
+CMakeFiles/MidiMaker.dir/test/testMidi.cpp.obj: ../test/testMidi.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\charl\CLionProjects\MidiMaker\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/MidiMaker.dir/test/testMidi.cpp.obj"
+	C:\PROGRA~2\MINGW-~1\I686-6~1.0-P\mingw32\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\MidiMaker.dir\test\testMidi.cpp.obj -c C:\Users\charl\CLionProjects\MidiMaker\test\testMidi.cpp
+
+CMakeFiles/MidiMaker.dir/test/testMidi.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/MidiMaker.dir/test/testMidi.cpp.i"
+	C:\PROGRA~2\MINGW-~1\I686-6~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\charl\CLionProjects\MidiMaker\test\testMidi.cpp > CMakeFiles\MidiMaker.dir\test\testMidi.cpp.i
+
+CMakeFiles/MidiMaker.dir/test/testMidi.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MidiMaker.dir/test/testMidi.cpp.s"
+	C:\PROGRA~2\MINGW-~1\I686-6~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\charl\CLionProjects\MidiMaker\test\testMidi.cpp -o CMakeFiles\MidiMaker.dir\test\testMidi.cpp.s
+
+CMakeFiles/MidiMaker.dir/test/testMidi.cpp.obj.requires:
+
+.PHONY : CMakeFiles/MidiMaker.dir/test/testMidi.cpp.obj.requires
+
+CMakeFiles/MidiMaker.dir/test/testMidi.cpp.obj.provides: CMakeFiles/MidiMaker.dir/test/testMidi.cpp.obj.requires
+	$(MAKE) -f CMakeFiles\MidiMaker.dir\build.make CMakeFiles/MidiMaker.dir/test/testMidi.cpp.obj.provides.build
+.PHONY : CMakeFiles/MidiMaker.dir/test/testMidi.cpp.obj.provides
+
+CMakeFiles/MidiMaker.dir/test/testMidi.cpp.obj.provides.build: CMakeFiles/MidiMaker.dir/test/testMidi.cpp.obj
 
 
 # Object files for target MidiMaker
 MidiMaker_OBJECTS = \
-"CMakeFiles/MidiMaker.dir/midi.cpp.obj"
+"CMakeFiles/MidiMaker.dir/src/midi.cpp.obj" \
+"CMakeFiles/MidiMaker.dir/test/testMidi.cpp.obj"
 
 # External object files for target MidiMaker
 MidiMaker_EXTERNAL_OBJECTS =
 
-MidiMaker.exe: CMakeFiles/MidiMaker.dir/midi.cpp.obj
+MidiMaker.exe: CMakeFiles/MidiMaker.dir/src/midi.cpp.obj
+MidiMaker.exe: CMakeFiles/MidiMaker.dir/test/testMidi.cpp.obj
 MidiMaker.exe: CMakeFiles/MidiMaker.dir/build.make
 MidiMaker.exe: CMakeFiles/MidiMaker.dir/linklibs.rsp
 MidiMaker.exe: CMakeFiles/MidiMaker.dir/objects1.rsp
 MidiMaker.exe: CMakeFiles/MidiMaker.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\charl\CLionProjects\MidiMaker\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable MidiMaker.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\charl\CLionProjects\MidiMaker\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable MidiMaker.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\MidiMaker.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -100,7 +126,8 @@ CMakeFiles/MidiMaker.dir/build: MidiMaker.exe
 
 .PHONY : CMakeFiles/MidiMaker.dir/build
 
-CMakeFiles/MidiMaker.dir/requires: CMakeFiles/MidiMaker.dir/midi.cpp.obj.requires
+CMakeFiles/MidiMaker.dir/requires: CMakeFiles/MidiMaker.dir/src/midi.cpp.obj.requires
+CMakeFiles/MidiMaker.dir/requires: CMakeFiles/MidiMaker.dir/test/testMidi.cpp.obj.requires
 
 .PHONY : CMakeFiles/MidiMaker.dir/requires
 

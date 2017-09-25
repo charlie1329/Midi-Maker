@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/MidiMaker.dir/midi.cpp.obj"
+  "CMakeFiles/MidiMaker.dir/src/midi.cpp.obj"
+  "CMakeFiles/MidiMaker.dir/test/testMidi.cpp.obj"
   "MidiMaker.pdb"
   "MidiMaker.exe"
   "MidiMaker.exe.manifest"
