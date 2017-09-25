@@ -13,7 +13,6 @@
 /*
  * test a whole file plays properly (integration tests), might have to be done manually elsewhere
  * that is where I find out if I read the spec properly
- * maybe check a header track
  * test every single event using getData() -- we'll see ;)
  * check addTrack() in MidiFile
  */
@@ -236,5 +235,92 @@ TEST_CASE("Tests header file set up follows the MIDI specification", "[Header]")
     CHECK(data.at(3) == 3);
     CHECK(data.at(4) == 0);
     CHECK(data.at(5) == 45);
+}
+
+
+TEST_CASE("Checks general behaviour of each Midi 'command'", "[Midi commands]") {
+    //--META EVENTS--
+
+    //--SYSEX EVENTS--
+
+    //--CHANNEL VOICE MESSAGES--
+
+    //--CHANNEL MODE MESSAGES--
+    MidiTrack testMode1;
+    testMode1.allSoundOff(7);
+    std::vector<byte> soundOff = testMode1.getData();
+    CHECK(soundOff.size() == 4);
+    CHECK(soundOff.at(0) == 7);
+    CHECK(soundOff.at(1) == 176);
+    CHECK(soundOff.at(2) == 120);
+    CHECK(soundOff.at(3) == 0);
+
+    MidiTrack testMode2;
+    testMode2.resetAllControllers(7);
+    std::vector<byte> resetCon = testMode2.getData();
+    CHECK(resetCon.size() == 4);
+    CHECK(resetCon.at(0) == 7);
+    CHECK(resetCon.at(1) == 176);
+    CHECK(resetCon.at(2) == 121);
+    CHECK(resetCon.at(3) == 0);
+
+    MidiTrack testMode3;
+    testMode3.localControl(7,0x7F);
+    std::vector<byte> localCon = testMode3.getData();
+    CHECK(localCon.size() == 4);
+    CHECK(localCon.at(0) == 7);
+    CHECK(localCon.at(1) == 176);
+    CHECK(localCon.at(2) == 122);
+    CHECK(localCon.at(3) == 127);
+
+    MidiTrack testMode4;
+    testMode4.allNotesOff(7);
+    std::vector<byte> notesOff = testMode4.getData();
+    CHECK(notesOff.size() == 4);
+    CHECK(notesOff.at(0) == 7);
+    CHECK(notesOff.at(1) == 176);
+    CHECK(notesOff.at(2) == 123);
+    CHECK(notesOff.at(3) == 0);
+
+    MidiTrack testMode5;
+    testMode5.omniModeOff(7);
+    std::vector<byte> omniOff = testMode5.getData();
+    CHECK(omniOff.size() == 4);
+    CHECK(omniOff.at(0) == 7);
+    CHECK(omniOff.at(1) == 176);
+    CHECK(omniOff.at(2) == 124);
+    CHECK(omniOff.at(3) == 0);
+
+    MidiTrack testMode6;
+    testMode6.omniModeOn(7);
+    std::vector<byte> omniOn = testMode6.getData();
+    CHECK(omniOn.size() == 4);
+    CHECK(omniOn.at(0) == 7);
+    CHECK(omniOn.at(1) == 176);
+    CHECK(omniOn.at(2) == 125);
+    CHECK(omniOn.at(3) == 0);
+
+    MidiTrack testMode7;
+    testMode7.monoModeOn(7, 9);
+    std::vector<byte> monoOn = testMode7.getData();
+    CHECK(monoOn.size() == 4);
+    CHECK(monoOn.at(0) == 7);
+    CHECK(monoOn.at(1) == 176);
+    CHECK(monoOn.at(2) == 126);
+    CHECK(monoOn.at(3) == 9);
+
+    MidiTrack testMode8;
+    testMode8.polyModeOn(7);
+    std::vector<byte> polyOn = testMode8.getData();
+    CHECK(polyOn.size() == 4);
+    CHECK(polyOn.at(0) == 7);
+    CHECK(polyOn.at(1) == 176);
+    CHECK(polyOn.at(2) == 127);
+    CHECK(polyOn.at(3) == 0);
+
+
+
+
+
 
 }
