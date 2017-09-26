@@ -19,11 +19,12 @@ To add Midi Maker, simply add the following two files from `/src` to your projec
 How To Use Midi Maker
 ---------------------
 There are 3 classes of use for creating Midi files. These are:
-*`MidiHeader` - used for MIDI header chunks
-*`MidiTrack` - used for MIDI track chunks
-*`MidiFile` - used to combine chunks into a MIDI file
 
-### `MidiHeader`
+* `MidiHeader` - used for MIDI header chunks
+* `MidiTrack` - used for MIDI track chunks
+* `MidiFile` - used to combine chunks into a MIDI file
+
+### MidiHeader
 Every Midi file needs a Header file. Creating a header is as simple as calling the constructor:
 
 ```C++
@@ -33,7 +34,7 @@ int divisions = 4; //defines default unit of delta time
 MidiHeader hd(format, tracks, division);
 ```
 
-### `MidiTrack`
+### MidiTrack
 A MIDI file can have 1 or more track chunks. This is where the musical information is actually stored.
 To create and add to a track chunk, one just has to create an object of the MidiTrack class, and can then
 sequentially call whichever commands they wish. You __must__ ensure each track ends with an end of track message however.
@@ -61,7 +62,7 @@ trk.noteOff(20, 0x3C, 0x40);
 trk.endOfTrack(0);
 ```
 
-###MidiFile
+### MidiFile
 This class brings together all of your MIDI chunks and dumps it into a file. Since a MIDI file must have at least one
 Header and Track chunk, one of each are passed into the constructor. Further track chunks can be added using `addTrack()`.
 
