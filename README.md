@@ -25,7 +25,9 @@ There are 3 classes of use for creating Midi files. These are:
 * `MidiFile` - used to combine chunks into a MIDI file
 
 ### MidiHeader
-Every Midi file needs a Header file. Creating a header is as simple as calling the constructor:
+Every Midi file needs a Header file. Creating a header is as simple as calling the constructor
+
+Example Usage:
 
 ```C++
 int format = 0; //MIDI format, can be 0, 1 or 2
@@ -39,7 +41,7 @@ A MIDI file can have 1 or more track chunks. This is where the musical informati
 To create and add to a track chunk, one just has to create an object of the MidiTrack class, and can then
 sequentially call whichever commands they wish. You __must__ ensure each track ends with an end of track message however.
 
-For example:
+Example Usage:
 
 ```C++
 MidiTrack trk;
