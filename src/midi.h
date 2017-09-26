@@ -59,7 +59,7 @@ public:
 //class to represent the first chunk of a midi file, the header
 class MidiHeader : public MidiChunk {
 public:
-    MidiHeader(uint16_t, uint16_t, uint16_t);
+    MidiHeader(uint16_t format, uint16_t tracks, uint16_t division);
 };
 
 /* class to represent a track chunk of a midi file

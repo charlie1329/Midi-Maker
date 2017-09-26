@@ -8,13 +8,13 @@
 #define CATCH_CONFIG_MAIN
 #include "catch.hpp" //include for test framework
 #include "../src/midi.h" //header file for code to test
+#include <fstream>
+#include <iostream>
 
 //things to test in midi.cpp
 /*
  * test a whole file plays properly (integration tests), might have to be done manually elsewhere
  * that is where I find out if I read the spec properly
- * test every single event using getData() -- we'll see ;)
- * check addTrack() in MidiFile
  */
 
 TEST_CASE("Tests the functionality of converting uints to a variable length quantity", "[VLQ]") {
@@ -203,9 +203,43 @@ TEST_CASE("Tests getNthByte32 behaves correctly", "[getNthByte32]") {
     CHECK_THROWS(getNthByte32(test1,100));
 }
 
-TEST_CASE("Tests (as much as possible in unit tests) that addTrack() behaves correctly", "[midiFile addTrack()]") {
-    //might be a bit of a pain to test, probably gonna have to read back in from a file to test it!
-    //TODO : come back to this later
+TEST_CASE("Tests (as much as possible) that writeChunk() etc. behaves correctly", "[midiFile writeChunk()]") {
+
+    //create the test file
+    std::string file = "testFile.mid";
+    MidiHeader hd(0,1,45);
+    MidiTrack trk;
+    trk.noteOn(0,0x3C,0x40);
+    trk.noteOff(100,0x3C,0x40);
+    trk.endOfTrack(0);
+    MidiFile midFile(file,hd,trk);
+    midFile.closeFile();
+
+    //now re-open it and check it!
+    std::ifstream reOpen(file);
+
+    std::vector<byte> expectedFile = {'M','T','h','d',0,0,0,6,0,0,0,1,0,45,
+                                       'M','T','r','k',0,0,0,12,0,0x90,0x3C,0x40,
+                                        100,0x80,0x3C,0x40,0,0xFF,0x2F,0x00};
+
+    //reading file in as a whole to check each byte
+    //credit to: http://www.cplusplus.com/forum/beginner/21548/
+    //get size of file
+    reOpen.seekg(0,std::ios::end);
+    size_t size = (size_t)reOpen.tellg();
+    reOpen.seekg(0,std::ios::beg);
+
+    REQUIRE(size == expectedFile.size());
+
+    char oData[size];
+    reOpen.read(oData,size);//read in size bytes
+
+    //go through each byte and compare
+    for(int i = 0; i < size; i++) {
+        CHECK((byte)oData[i] == expectedFile.at(i)); //do a cast to make sure equality works fine
+    }
+
+    reOpen.close();
 }
 
 TEST_CASE("Tests header file set up follows the MIDI specification", "[Header]") {
@@ -240,10 +274,273 @@ TEST_CASE("Tests header file set up follows the MIDI specification", "[Header]")
 
 TEST_CASE("Checks general behaviour of each Midi 'command'", "[Midi commands]") {
     //--META EVENTS--
+    MidiTrack testMeta1;
+    testMeta1.sequenceNum(7,35);
+    std::vector<byte> sequenceNum = testMeta1.getData();
+    CHECK(sequenceNum.size() == 6);
+    CHECK(sequenceNum.at(0) == 7);
+    CHECK(sequenceNum.at(1) == 255);
+    CHECK(sequenceNum.at(2) == 0);
+    CHECK(sequenceNum.at(3) == 2);
+    CHECK(sequenceNum.at(4) == 0);
+    CHECK(sequenceNum.at(5) == 35);
+
+    MidiTrack testMeta2;
+    testMeta2.textEvent(7,"hi");
+    std::vector<byte> textEvent = testMeta2.getData();
+    CHECK(textEvent.size() == 7);
+    CHECK(textEvent.at(0) == 7);
+    CHECK(textEvent.at(1) == 255);
+    CHECK(textEvent.at(2) == 1);
+    CHECK(textEvent.at(3) == 3);
+    CHECK(textEvent.at(4) == 'h');
+    CHECK(textEvent.at(5) == 'i');
+    CHECK(textEvent.at(6) == 0);
+
+    MidiTrack testMeta3;
+    testMeta3.copyrightNotice(7,"(C)");
+    std::vector<byte> copyright = testMeta3.getData();
+    CHECK(copyright.size() == 8);
+    CHECK(copyright.at(0) == 7);
+    CHECK(copyright.at(1) == 255);
+    CHECK(copyright.at(2) == 2);
+    CHECK(copyright.at(3) == 4);
+    CHECK(copyright.at(4) == '(');
+    CHECK(copyright.at(5) == 'C');
+    CHECK(copyright.at(6) == ')');
+    CHECK(copyright.at(7) == 0);
+
+    MidiTrack testMeta4;
+    testMeta4.trackName(7,"trk");
+    std::vector<byte> trackName = testMeta4.getData();
+    CHECK(trackName.size() == 8);
+    CHECK(trackName.at(0) == 7);
+    CHECK(trackName.at(1) == 255);
+    CHECK(trackName.at(2) == 3);
+    CHECK(trackName.at(3) == 4);
+    CHECK(trackName.at(4) == 't');
+    CHECK(trackName.at(5) == 'r');
+    CHECK(trackName.at(6) == 'k');
+    CHECK(trackName.at(7) == 0);
+
+    MidiTrack testMeta5;
+    testMeta5.instrumentName(7,"gtr");
+    std::vector<byte> instrName = testMeta5.getData();
+    CHECK(instrName.size() == 8);
+    CHECK(instrName.at(0) == 7);
+    CHECK(instrName.at(1) == 255);
+    CHECK(instrName.at(2) == 4);
+    CHECK(instrName.at(3) == 4);
+    CHECK(instrName.at(4) == 'g');
+    CHECK(instrName.at(5) == 't');
+    CHECK(instrName.at(6) == 'r');
+    CHECK(instrName.at(7) == 0);
+
+    MidiTrack testMeta6;
+    testMeta6.lyric(7,"hey");
+    std::vector<byte> lyric = testMeta6.getData();
+    CHECK(lyric.size() == 8);
+    CHECK(lyric.at(0) == 7);
+    CHECK(lyric.at(1) == 255);
+    CHECK(lyric.at(2) == 5);
+    CHECK(lyric.at(3) == 4);
+    CHECK(lyric.at(4) == 'h');
+    CHECK(lyric.at(5) == 'e');
+    CHECK(lyric.at(6) == 'y');
+    CHECK(lyric.at(7) == 0);
+
+    MidiTrack testMeta7;
+    testMeta7.marker(7,"vs1");
+    std::vector<byte> marker = testMeta7.getData();
+    CHECK(marker.size() == 8);
+    CHECK(marker.at(0) == 7);
+    CHECK(marker.at(1) == 255);
+    CHECK(marker.at(2) == 6);
+    CHECK(marker.at(3) == 4);
+    CHECK(marker.at(4) == 'v');
+    CHECK(marker.at(5) == 's');
+    CHECK(marker.at(6) == '1');
+    CHECK(marker.at(7) == 0);
+
+    MidiTrack testMeta8;
+    testMeta8.cuePoint(7,"esr");
+    std::vector<byte> cue = testMeta8.getData();
+    CHECK(cue.size() == 8);
+    CHECK(cue.at(0) == 7);
+    CHECK(cue.at(1) == 255);
+    CHECK(cue.at(2) == 7);
+    CHECK(cue.at(3) == 4);
+    CHECK(cue.at(4) == 'e');
+    CHECK(cue.at(5) == 's');
+    CHECK(cue.at(6) == 'r');
+    CHECK(cue.at(7) == 0);
+
+    MidiTrack testMeta9;
+    testMeta9.midiChannelPrefix(7,0x00);
+    std::vector<byte> midiPrefix = testMeta9.getData();
+    CHECK(midiPrefix.size() == 5);
+    CHECK(midiPrefix.at(0) == 7);
+    CHECK(midiPrefix.at(1) == 255);
+    CHECK(midiPrefix.at(2) == 32);
+    CHECK(midiPrefix.at(3) == 1);
+    CHECK(midiPrefix.at(4) == 0);
+
+    MidiTrack testMeta10;
+    testMeta10.endOfTrack(7);
+    std::vector<byte> eot = testMeta10.getData();
+    CHECK(eot.size() == 4);
+    CHECK(eot.at(0) == 7);
+    CHECK(eot.at(1) == 255);
+    CHECK(eot.at(2) == 47);
+    CHECK(eot.at(3) == 0);
+
+    MidiTrack testMeta11;
+    testMeta11.setTempo(7,50000);
+    std::vector<byte> tempo = testMeta11.getData();
+    CHECK(tempo.size() == 7);
+    CHECK(tempo.at(0) == 7);
+    CHECK(tempo.at(1) == 255);
+    CHECK(tempo.at(2) == 81);
+    CHECK(tempo.at(3) == 03);
+    CHECK(tempo.at(4) == 0);
+    CHECK(tempo.at(5) == 195);
+    CHECK(tempo.at(6) == 80);
+
+    MidiTrack testMeta12;
+    testMeta12.smtpeOffset(7,64,100);
+    std::vector<byte> smtpe = testMeta12.getData();
+    CHECK(smtpe.size() == 9);
+    CHECK(smtpe.at(0) == 7);
+    CHECK(smtpe.at(1) == 255);
+    CHECK(smtpe.at(2) == 84);
+    CHECK(smtpe.at(3) == 5);
+    CHECK(smtpe.at(4) == 0);
+    CHECK(smtpe.at(5) == 0);
+    CHECK(smtpe.at(6) == 0);
+    CHECK(smtpe.at(7) == 64);
+    CHECK(smtpe.at(8) == 100);
+
+    MidiTrack testMeta13;
+    testMeta13.timeSignature(7,6,3,24,8);
+    std::vector<byte> timeSig = testMeta13.getData();
+    CHECK(timeSig.size() == 8);
+    CHECK(timeSig.at(0) == 7);
+    CHECK(timeSig.at(1) == 255);
+    CHECK(timeSig.at(2) == 88);
+    CHECK(timeSig.at(3) == 4);
+    CHECK(timeSig.at(4) == 6);
+    CHECK(timeSig.at(5) == 3);
+    CHECK(timeSig.at(6) == 24);
+    CHECK(timeSig.at(7) == 8);
+
+    MidiTrack testMeta14;
+    testMeta14.keySignature(7,1,0);//G Major
+    std::vector<byte> keySig = testMeta14.getData();
+    CHECK(keySig.size() == 6);
+    CHECK(keySig.at(0) == 7);
+    CHECK(keySig.at(1) == 255);
+    CHECK(keySig.at(2) == 89);
+    CHECK(keySig.at(3) == 2);
+    CHECK(keySig.at(4) == 1);
+    CHECK(keySig.at(5) == 0);
+
+    MidiTrack testMeta15;
+    testMeta15.sequencerSpecificMetaEvent(7,{0x10},{0x12,0x11});
+    std::vector<byte> ssme = testMeta15.getData();
+    CHECK(ssme.size() == 7);
+    CHECK(ssme.at(0) == 7);
+    CHECK(ssme.at(1) == 255);
+    CHECK(ssme.at(2) == 127);
+    CHECK(ssme.at(3) == 3);
+    CHECK(ssme.at(4) == 16);
+    CHECK(ssme.at(5) == 18);
+    CHECK(ssme.at(6) == 17);
 
     //--SYSEX EVENTS--
+    MidiTrack testSysex1;
+    testSysex1.f0Sysex(7, {0x10, 0x15, 0xA0});
+    std::vector<byte> f0Sysex = testSysex1.getData();
+    CHECK(f0Sysex.size() == 6);
+    CHECK(f0Sysex.at(0) == 7);
+    CHECK(f0Sysex.at(1) == 240);
+    CHECK(f0Sysex.at(2) == 3);
+    CHECK(f0Sysex.at(3) == 16);
+    CHECK(f0Sysex.at(4) == 21);
+    CHECK(f0Sysex.at(5) == 160);
+
+    MidiTrack testSysex2;
+    testSysex2.f7Sysex(7, {0x10, 0x15, 0xA0});
+    std::vector<byte> f7Sysex = testSysex2.getData();
+    CHECK(f7Sysex.size() == 6);
+    CHECK(f7Sysex.at(0) == 7);
+    CHECK(f7Sysex.at(1) == 247);
+    CHECK(f7Sysex.at(2) == 3);
+    CHECK(f7Sysex.at(3) == 16);
+    CHECK(f7Sysex.at(4) == 21);
+    CHECK(f7Sysex.at(5) == 160);
+
 
     //--CHANNEL VOICE MESSAGES--
+    MidiTrack testVoice1;
+    testVoice1.noteOff(7,0x3C,0x7F);
+    std::vector<byte> noteOff = testVoice1.getData();
+    CHECK(noteOff.size() == 4);
+    CHECK(noteOff.at(0) == 7);
+    CHECK(noteOff.at(1) == 128);
+    CHECK(noteOff.at(2) == 60);
+    CHECK(noteOff.at(3) == 127);
+
+    MidiTrack testVoice2;
+    testVoice2.noteOn(7,0x3C,0x7F);
+    std::vector<byte> noteOn = testVoice2.getData();
+    CHECK(noteOn.size() == 4);
+    CHECK(noteOn.at(0) == 7);
+    CHECK(noteOn.at(1) == 144);
+    CHECK(noteOn.at(2) == 60);
+    CHECK(noteOn.at(3) == 127);
+
+    MidiTrack testVoice3;
+    testVoice3.polyphonicKeyPressure(7, 0x3C, 0x00);
+    std::vector<byte> polyKeyPressure = testVoice3.getData();
+    CHECK(polyKeyPressure.size() == 4);
+    CHECK(polyKeyPressure.at(0) == 7);
+    CHECK(polyKeyPressure.at(1) == 160);
+    CHECK(polyKeyPressure.at(2) == 60);
+    CHECK(polyKeyPressure.at(3) == 0);
+
+    MidiTrack testVoice4;
+    testVoice4.controllerChange(7, 0x77, 0x40);
+    std::vector<byte> controlChange = testVoice4.getData();
+    CHECK(controlChange.size() == 4);
+    CHECK(controlChange.at(0) == 7);
+    CHECK(controlChange.at(1) == 176);
+    CHECK(controlChange.at(2) == 119);
+    CHECK(controlChange.at(3) == 64);
+
+    MidiTrack testVoice5;
+    testVoice5.programChange(7,0x40);
+    std::vector<byte> progChange = testVoice5.getData();
+    CHECK(progChange.size() == 3);
+    CHECK(progChange.at(0) == 7);
+    CHECK(progChange.at(1) == 192);
+    CHECK(progChange.at(2) == 64);
+
+    MidiTrack testVoice6;
+    testVoice6.channelKeyPressure(7,0x40);
+    std::vector<byte> channelPressure = testVoice6.getData();
+    CHECK(channelPressure.size() == 3);
+    CHECK(channelPressure.at(0) == 7);
+    CHECK(channelPressure.at(1) == 208);
+    CHECK(channelPressure.at(2) == 64);
+
+    MidiTrack testVoice7;
+    testVoice7.pitchBend(7, 0x40, 0x7F);
+    std::vector<byte> pitchBend = testVoice7.getData();
+    CHECK(pitchBend.size() == 4);
+    CHECK(pitchBend.at(0) == 7);
+    CHECK(pitchBend.at(1) == 224);
+    CHECK(pitchBend.at(2) == 64);
+    CHECK(pitchBend.at(3) == 127);
 
     //--CHANNEL MODE MESSAGES--
     MidiTrack testMode1;
@@ -318,9 +615,20 @@ TEST_CASE("Checks general behaviour of each Midi 'command'", "[Midi commands]") 
     CHECK(polyOn.at(2) == 127);
     CHECK(polyOn.at(3) == 0);
 
+    //--MULTIPLE MESSAGE TEST--
 
-
-
-
+    MidiTrack testMulti;
+    testMulti.noteOn(0,0x3C,0x40);
+    testMulti.noteOff(100,0x3C,0x40);
+    std::vector<byte> multi = testMulti.getData();
+    CHECK(multi.size() == 8);
+    CHECK(multi.at(0) == 0);
+    CHECK(multi.at(1) == 144);
+    CHECK(multi.at(2) == 60);
+    CHECK(multi.at(3) == 64);
+    CHECK(multi.at(4) == 100);
+    CHECK(multi.at(5) == 128);
+    CHECK(multi.at(6) == 60);
+    CHECK(multi.at(7) == 64);
 
 }

@@ -3,23 +3,25 @@
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true" buildAllGenerated="true">
     <generated>
       <config projectName="MidiMaker" targetName="MidiMaker" />
+      <config projectName="MidiMaker" targetName="Twinkle" />
     </generated>
   </component>
   <component name="CMakeSettings">
     <configurations>
-      <configuration CONFIG_NAME="Debug" />
+      <configuration CONFIG_NAME="Release" />
     </configurations>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bb6bed66-a746-4d7a-93f1-673d6ddab782" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/MidiMaker.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/midi.cpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/midi.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CMakeLists.txt" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/MidiMaker.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/midi.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/midi.cpp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CMakeLists.txt" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
+    <ignored path="$PROJECT_DIR$/cmake-build-release/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -32,9 +34,21 @@
       <file leaf-file-name="CMakeLists.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="55" lean-forward="false" selection-start-line="5" selection-start-column="55" selection-end-line="5" selection-end-column="55" />
+            <state relative-caret-position="187">
+              <caret line="11" column="40" lean-forward="false" selection-start-line="11" selection-start-column="40" selection-end-line="11" selection-end-column="40" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="twinkle_twinkle.cpp" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/examples/twinkle_twinkle.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="249">
+              <caret line="22" column="96" lean-forward="false" selection-start-line="22" selection-start-column="96" selection-end-line="22" selection-end-column="96" />
+              <folding>
+                <element signature="e#143#167#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -42,8 +56,8 @@
       <file leaf-file-name="midi.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/midi.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="742">
-              <caret line="362" column="69" lean-forward="true" selection-start-line="362" selection-start-column="69" selection-end-line="362" selection-end-column="69" />
+            <state relative-caret-position="-24">
+              <caret line="379" column="0" lean-forward="false" selection-start-line="379" selection-start-column="0" selection-end-line="379" selection-end-column="0" />
               <folding>
                 <element signature="e#182#201#0" expanded="true" />
               </folding>
@@ -51,11 +65,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="testMidi.cpp" pinned="false" current-in-tab="true">
+      <file leaf-file-name="testMidi.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/testMidi.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="147">
-              <caret line="304" column="12" lean-forward="false" selection-start-line="304" selection-start-column="12" selection-end-line="304" selection-end-column="12" />
+            <state relative-caret-position="-4260">
+              <caret line="212" column="17" lean-forward="false" selection-start-line="212" selection-start-column="17" selection-end-line="212" selection-end-column="17" />
               <folding>
                 <element signature="e#270#319#0" expanded="true" />
               </folding>
@@ -66,8 +80,8 @@
       <file leaf-file-name="midi.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/midi.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="801">
-              <caret line="135" column="0" lean-forward="true" selection-start-line="135" selection-start-column="0" selection-end-line="135" selection-end-column="0" />
+            <state relative-caret-position="-153">
+              <caret line="0" column="2" lean-forward="false" selection-start-line="0" selection-start-column="2" selection-end-line="0" selection-end-column="2" />
               <folding>
                 <element signature="e#244#261#0" expanded="true" />
               </folding>
@@ -84,6 +98,7 @@
       <find>MIDIChunk</find>
       <find>MidiHeader::Midi</find>
       <find>writeChunk</find>
+      <find>fromString</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -102,10 +117,11 @@
         <option value="$PROJECT_DIR$/midi_.h" />
         <option value="$PROJECT_DIR$/midi.h" />
         <option value="$PROJECT_DIR$/midi.cpp" />
-        <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/src/midi.h" />
         <option value="$PROJECT_DIR$/src/midi.cpp" />
         <option value="$PROJECT_DIR$/test/testMidi.cpp" />
+        <option value="$PROJECT_DIR$/CMakeLists.txt" />
+        <option value="$PROJECT_DIR$/examples/twinkle_twinkle.cpp" />
       </list>
     </option>
   </component>
@@ -147,7 +163,7 @@
             <path>
               <item name="MidiMaker" type="dad4c3:CidrFilesViewHelper$MyProjectTreeStructure$1" />
               <item name="MidiMaker" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="examples" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -157,7 +173,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="settings.editor.selected.configurable" value="CMakeSettings" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -180,12 +196,16 @@
     <configuration name="Build All" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Debug" EXPLICIT_BUILD_TARGET_NAME="all">
       <envs />
     </configuration>
-    <configuration name="MidiMaker" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="MidiMaker" TARGET_NAME="MidiMaker" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="MidiMaker" RUN_TARGET_NAME="MidiMaker">
+    <configuration name="MidiMaker" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="MidiMaker" TARGET_NAME="Twinkle" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="MidiMaker" RUN_TARGET_NAME="Twinkle">
       <envs />
     </configuration>
-    <list size="2">
+    <configuration name="Twinkle" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="MidiMaker" TARGET_NAME="Twinkle" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="MidiMaker" RUN_TARGET_NAME="Twinkle">
+      <envs />
+    </configuration>
+    <list size="3">
       <item index="0" class="java.lang.String" itemvalue="Application.Build All" />
       <item index="1" class="java.lang.String" itemvalue="Application.MidiMaker" />
+      <item index="2" class="java.lang.String" itemvalue="Application.Twinkle" />
     </list>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
@@ -208,14 +228,16 @@
       <workItem from="1506006791607" duration="3545000" />
       <workItem from="1506010378467" duration="2247000" />
       <workItem from="1506331061016" duration="14576000" />
+      <workItem from="1506414222204" duration="12697000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="41212000" />
+    <option name="totallyTimeSpent" value="53909000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32869694" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -223,7 +245,7 @@
       <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.3296355" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296355" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3296355" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -256,6 +278,44 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="55" lean-forward="false" selection-start-line="5" selection-start-column="55" selection-end-line="5" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/midi.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6154">
+          <caret line="362" column="69" lean-forward="true" selection-start-line="362" selection-start-column="69" selection-end-line="362" selection-end-column="69" />
+          <folding>
+            <element signature="e#182#201#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/midi.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2295">
+          <caret line="135" column="0" lean-forward="true" selection-start-line="135" selection-start-column="0" selection-end-line="135" selection-end-column="0" />
+          <folding>
+            <element signature="e#244#261#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/testMidi.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5168">
+          <caret line="304" column="12" lean-forward="false" selection-start-line="304" selection-start-column="12" selection-end-line="304" selection-end-column="12" />
+          <folding>
+            <element signature="e#270#319#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -432,40 +492,58 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+    <entry file="file://$PROJECT_DIR$/examples/twinkle_twinkle.cpp.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="55" lean-forward="false" selection-start-line="5" selection-start-column="55" selection-end-line="5" selection-end-column="55" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/midi.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="801">
-          <caret line="135" column="0" lean-forward="true" selection-start-line="135" selection-start-column="0" selection-end-line="135" selection-end-column="0" />
+        <state relative-caret-position="-153">
+          <caret line="0" column="2" lean-forward="false" selection-start-line="0" selection-start-column="2" selection-end-line="0" selection-end-column="2" />
           <folding>
             <element signature="e#244#261#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/test/testMidi.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4260">
+          <caret line="212" column="17" lean-forward="false" selection-start-line="212" selection-start-column="17" selection-end-line="212" selection-end-column="17" />
+          <folding>
+            <element signature="e#270#319#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/midi.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="742">
-          <caret line="362" column="69" lean-forward="true" selection-start-line="362" selection-start-column="69" selection-end-line="362" selection-end-column="69" />
+        <state relative-caret-position="-24">
+          <caret line="379" column="0" lean-forward="false" selection-start-line="379" selection-start-column="0" selection-end-line="379" selection-end-column="0" />
           <folding>
             <element signature="e#182#201#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/testMidi.cpp">
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="304" column="12" lean-forward="false" selection-start-line="304" selection-start-column="12" selection-end-line="304" selection-end-column="12" />
+        <state relative-caret-position="187">
+          <caret line="11" column="40" lean-forward="false" selection-start-line="11" selection-start-column="40" selection-end-line="11" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/twinkle_twinkle.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="249">
+          <caret line="22" column="96" lean-forward="false" selection-start-line="22" selection-start-column="96" selection-end-line="22" selection-end-column="96" />
           <folding>
-            <element signature="e#270#319#0" expanded="true" />
+            <element signature="e#143#167#0" expanded="true" />
           </folding>
         </state>
       </provider>

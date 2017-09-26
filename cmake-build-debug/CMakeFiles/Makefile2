@@ -96,6 +96,43 @@ clean: CMakeFiles/MidiMaker.dir/clean
 .PHONY : clean
 
 #=============================================================================
+# Target rules for target CMakeFiles/Twinkle.dir
+
+# All Build rule for target.
+CMakeFiles/Twinkle.dir/all:
+	$(MAKE) -f CMakeFiles\Twinkle.dir\build.make CMakeFiles/Twinkle.dir/depend
+	$(MAKE) -f CMakeFiles\Twinkle.dir\build.make CMakeFiles/Twinkle.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\charl\CLionProjects\MidiMaker\cmake-build-debug\CMakeFiles --progress-num=4,5,6 "Built target Twinkle"
+.PHONY : CMakeFiles/Twinkle.dir/all
+
+# Include target in all.
+all: CMakeFiles/Twinkle.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/Twinkle.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\charl\CLionProjects\MidiMaker\cmake-build-debug\CMakeFiles 3
+	$(MAKE) -f CMakeFiles\Makefile2 CMakeFiles/Twinkle.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\charl\CLionProjects\MidiMaker\cmake-build-debug\CMakeFiles 0
+.PHONY : CMakeFiles/Twinkle.dir/rule
+
+# Convenience name for target.
+Twinkle: CMakeFiles/Twinkle.dir/rule
+
+.PHONY : Twinkle
+
+# clean rule for target.
+CMakeFiles/Twinkle.dir/clean:
+	$(MAKE) -f CMakeFiles\Twinkle.dir\build.make CMakeFiles/Twinkle.dir/clean
+.PHONY : CMakeFiles/Twinkle.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/Twinkle.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
 # Special targets to cleanup operation of make.
 
 # Special rule to run CMake to check the build system integrity.

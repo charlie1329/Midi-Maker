@@ -1,3 +1,4 @@
 C:/Users/charl/CLionProjects/MidiMaker/cmake-build-debug/CMakeFiles/MidiMaker.dir
+C:/Users/charl/CLionProjects/MidiMaker/cmake-build-debug/CMakeFiles/Twinkle.dir
 C:/Users/charl/CLionProjects/MidiMaker/cmake-build-debug/CMakeFiles/edit_cache.dir
 C:/Users/charl/CLionProjects/MidiMaker/cmake-build-debug/CMakeFiles/rebuild_cache.dir

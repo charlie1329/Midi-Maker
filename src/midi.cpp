@@ -104,7 +104,7 @@ void MidiTrack::sequenceNum(unsigned int delta, uint16_t seq) {
 void MidiTrack::textEvent(unsigned int delta, std::string str) {
     addData(uintToVLQ(delta));
     addData({META_EVENT, 0x01});
-    std::vector<byte> strVec = fromString(str);
+    std::vector<byte> strVec = fromString(std::move(str));
     addData(uintToVLQ(strVec.size()));
     addData(strVec);
 }
@@ -113,7 +113,7 @@ void MidiTrack::textEvent(unsigned int delta, std::string str) {
 void MidiTrack::copyrightNotice(unsigned int delta, std::string str) {
     addData(uintToVLQ(delta));
     addData({META_EVENT, 0x02});
-    std::vector<byte> strVec = fromString(str);
+    std::vector<byte> strVec = fromString(std::move(str));
     addData(uintToVLQ(strVec.size()));
     addData(strVec);
 }
@@ -122,7 +122,7 @@ void MidiTrack::copyrightNotice(unsigned int delta, std::string str) {
 void MidiTrack::trackName(unsigned int delta, std::string str) {
     addData(uintToVLQ(delta));
     addData({META_EVENT, 0x03});
-    std::vector<byte> strVec = fromString(str);
+    std::vector<byte> strVec = fromString(std::move(str));
     addData(uintToVLQ(strVec.size()));
     addData(strVec);
 }
@@ -131,7 +131,7 @@ void MidiTrack::trackName(unsigned int delta, std::string str) {
 void MidiTrack::instrumentName(unsigned int delta, std::string str) {
     addData(uintToVLQ(delta));
     addData({META_EVENT, 0x04});
-    std::vector<byte> strVec = fromString(str);
+    std::vector<byte> strVec = fromString(std::move(str));
     addData(uintToVLQ(strVec.size()));
     addData(strVec);
 }
@@ -140,7 +140,7 @@ void MidiTrack::instrumentName(unsigned int delta, std::string str) {
 void MidiTrack::lyric(unsigned int delta, std::string str) {
     addData(uintToVLQ(delta));
     addData({META_EVENT, 0x05});
-    std::vector<byte> strVec = fromString(str);
+    std::vector<byte> strVec = fromString(std::move(str));
     addData(uintToVLQ(strVec.size()));
     addData(strVec);
 }
@@ -149,7 +149,7 @@ void MidiTrack::lyric(unsigned int delta, std::string str) {
 void MidiTrack::marker(unsigned int delta, std::string str) {
     addData(uintToVLQ(delta));
     addData({META_EVENT, 0x06});
-    std::vector<byte> strVec = fromString(str);
+    std::vector<byte> strVec = fromString(std::move(str));
     addData(uintToVLQ(strVec.size()));
     addData(strVec);
 }
@@ -158,7 +158,7 @@ void MidiTrack::marker(unsigned int delta, std::string str) {
 void MidiTrack::cuePoint(unsigned int delta, std::string str) {
     addData(uintToVLQ(delta));
     addData({META_EVENT, 0x07});
-    std::vector<byte> strVec = fromString(str);
+    std::vector<byte> strVec = fromString(std::move(str));
     addData(uintToVLQ(strVec.size()));
     addData(strVec);
 }
@@ -360,23 +360,22 @@ void MidiFile::writeChunk(MidiChunk chunk) {
 
     //write vectors to my file
     std::ostream_iterator<byte> writeBytes(midiFile);
-    //TODO : check in hex editor this puts nothing between the bytes!
     std::copy(std::begin(typeAndLength), std::end(typeAndLength), writeBytes);
     std::copy(std::begin(data), std::end(data), writeBytes);
 }
 
 //needs a name for the file, and a header file and an initial track (can have more)
 MidiFile::MidiFile(std::string fileName, MidiHeader hd, MidiTrack trk) {
-    midiFile.open(fileName, std::ofstream::out);
-    writeChunk(hd);
-    writeChunk(trk);
+    midiFile.open(fileName, std::ofstream::out | std::ofstream::trunc);
+    writeChunk(std::move(hd));
+    writeChunk(std::move(trk));
 }
 
 /* writes a track to the midi file,
  * just a call to writeChunk, but enforced to be a track
  */
 void MidiFile::addTrack(MidiTrack trk) {
-    writeChunk(trk);
+    writeChunk(std::move(trk));
 }
 
 void MidiFile::closeFile() {

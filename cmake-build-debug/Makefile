@@ -122,6 +122,46 @@ MidiMaker/fast:
 	$(MAKE) -f CMakeFiles\MidiMaker.dir\build.make CMakeFiles/MidiMaker.dir/build
 .PHONY : MidiMaker/fast
 
+#=============================================================================
+# Target rules for targets named Twinkle
+
+# Build rule for target.
+Twinkle: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 Twinkle
+.PHONY : Twinkle
+
+# fast build rule for target.
+Twinkle/fast:
+	$(MAKE) -f CMakeFiles\Twinkle.dir\build.make CMakeFiles/Twinkle.dir/build
+.PHONY : Twinkle/fast
+
+examples/twinkle_twinkle.obj: examples/twinkle_twinkle.cpp.obj
+
+.PHONY : examples/twinkle_twinkle.obj
+
+# target to build an object file
+examples/twinkle_twinkle.cpp.obj:
+	$(MAKE) -f CMakeFiles\Twinkle.dir\build.make CMakeFiles/Twinkle.dir/examples/twinkle_twinkle.cpp.obj
+.PHONY : examples/twinkle_twinkle.cpp.obj
+
+examples/twinkle_twinkle.i: examples/twinkle_twinkle.cpp.i
+
+.PHONY : examples/twinkle_twinkle.i
+
+# target to preprocess a source file
+examples/twinkle_twinkle.cpp.i:
+	$(MAKE) -f CMakeFiles\Twinkle.dir\build.make CMakeFiles/Twinkle.dir/examples/twinkle_twinkle.cpp.i
+.PHONY : examples/twinkle_twinkle.cpp.i
+
+examples/twinkle_twinkle.s: examples/twinkle_twinkle.cpp.s
+
+.PHONY : examples/twinkle_twinkle.s
+
+# target to generate assembly for a file
+examples/twinkle_twinkle.cpp.s:
+	$(MAKE) -f CMakeFiles\Twinkle.dir\build.make CMakeFiles/Twinkle.dir/examples/twinkle_twinkle.cpp.s
+.PHONY : examples/twinkle_twinkle.cpp.s
+
 src/midi.obj: src/midi.cpp.obj
 
 .PHONY : src/midi.obj
@@ -129,6 +169,7 @@ src/midi.obj: src/midi.cpp.obj
 # target to build an object file
 src/midi.cpp.obj:
 	$(MAKE) -f CMakeFiles\MidiMaker.dir\build.make CMakeFiles/MidiMaker.dir/src/midi.cpp.obj
+	$(MAKE) -f CMakeFiles\Twinkle.dir\build.make CMakeFiles/Twinkle.dir/src/midi.cpp.obj
 .PHONY : src/midi.cpp.obj
 
 src/midi.i: src/midi.cpp.i
@@ -138,6 +179,7 @@ src/midi.i: src/midi.cpp.i
 # target to preprocess a source file
 src/midi.cpp.i:
 	$(MAKE) -f CMakeFiles\MidiMaker.dir\build.make CMakeFiles/MidiMaker.dir/src/midi.cpp.i
+	$(MAKE) -f CMakeFiles\Twinkle.dir\build.make CMakeFiles/Twinkle.dir/src/midi.cpp.i
 .PHONY : src/midi.cpp.i
 
 src/midi.s: src/midi.cpp.s
@@ -147,6 +189,7 @@ src/midi.s: src/midi.cpp.s
 # target to generate assembly for a file
 src/midi.cpp.s:
 	$(MAKE) -f CMakeFiles\MidiMaker.dir\build.make CMakeFiles/MidiMaker.dir/src/midi.cpp.s
+	$(MAKE) -f CMakeFiles\Twinkle.dir\build.make CMakeFiles/Twinkle.dir/src/midi.cpp.s
 .PHONY : src/midi.cpp.s
 
 test/testMidi.obj: test/testMidi.cpp.obj
@@ -183,8 +226,12 @@ help:
 	@echo ... clean
 	@echo ... depend
 	@echo ... MidiMaker
+	@echo ... Twinkle
 	@echo ... edit_cache
 	@echo ... rebuild_cache
+	@echo ... examples/twinkle_twinkle.obj
+	@echo ... examples/twinkle_twinkle.i
+	@echo ... examples/twinkle_twinkle.s
 	@echo ... src/midi.obj
 	@echo ... src/midi.i
 	@echo ... src/midi.s
