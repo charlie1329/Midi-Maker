@@ -92,3 +92,19 @@ If you wish to run the [Catch](https://github.com/philsquared/Catch) unit tests,
 the file `/test/testMidi.cpp`. This should produce an executable which, when run, carries out the unit tests.
 Individual tests can also be run from this executable. Please see the [Catch](https://github.com/philsquared/Catch) documentation
 for details.
+
+Running The Example Code
+------------------------
+This code has been developed on a Windows machine. Therefore, in examples, when the file is played using `mciSendString`,
+this will not work in any non-Windows machines. If you still want to run these examples, remove the following lines to
+just generate the `.mid` file and then you can play the midi file using whatever you have available on your OS:
+
+```C++
+#include <Windows.h>
+#include <MMSystem.h>
+
+//...
+
+mciSendString("play someMidi.mid",nullptr,0,nullptr);
+Sleep(5000);
+```

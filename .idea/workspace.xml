@@ -44,11 +44,9 @@
       <file leaf-file-name="twinkle_twinkle.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/examples/twinkle_twinkle.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="109">
-              <caret line="68" column="4" lean-forward="false" selection-start-line="68" selection-start-column="4" selection-end-line="69" selection-end-column="22" />
-              <folding>
-                <element signature="e#143#167#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="-928">
+              <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="8" selection-end-column="21" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -56,8 +54,8 @@
       <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="99">
-              <caret line="43" column="14" lean-forward="false" selection-start-line="43" selection-start-column="14" selection-end-line="43" selection-end-column="14" />
+            <state relative-caret-position="119">
+              <caret line="99" column="110" lean-forward="false" selection-start-line="99" selection-start-column="110" selection-end-line="99" selection-end-column="110" />
               <folding />
             </state>
           </provider>
@@ -171,11 +169,6 @@
               <item name="MidiMaker" type="dad4c3:CidrFilesViewHelper$MyProjectTreeStructure$1" />
               <item name="MidiMaker" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="MidiMaker" type="dad4c3:CidrFilesViewHelper$MyProjectTreeStructure$1" />
-              <item name="MidiMaker" type="462c0819:PsiDirectoryNode" />
-              <item name="examples" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -239,12 +232,12 @@
       <workItem from="1506006791607" duration="3545000" />
       <workItem from="1506010378467" duration="2247000" />
       <workItem from="1506331061016" duration="14576000" />
-      <workItem from="1506414222204" duration="16304000" />
+      <workItem from="1506414222204" duration="16698000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="57516000" />
+    <option name="totallyTimeSpent" value="57910000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -519,6 +512,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/midi.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6443">
+          <caret line="379" column="0" lean-forward="false" selection-start-line="379" selection-start-column="0" selection-end-line="379" selection-end-column="0" />
+          <folding>
+            <element signature="e#182#201#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/midi.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-714">
@@ -539,30 +542,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/midi.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6443">
-          <caret line="379" column="0" lean-forward="false" selection-start-line="379" selection-start-column="0" selection-end-line="379" selection-end-column="0" />
-          <folding>
-            <element signature="e#182#201#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/examples/twinkle_twinkle.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="109">
-          <caret line="68" column="4" lean-forward="false" selection-start-line="68" selection-start-column="4" selection-end-line="69" selection-end-column="22" />
-          <folding>
-            <element signature="e#143#167#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="-928">
+          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="8" selection-end-column="21" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="99">
-          <caret line="43" column="14" lean-forward="false" selection-start-line="43" selection-start-column="14" selection-end-line="43" selection-end-column="14" />
+        <state relative-caret-position="119">
+          <caret line="99" column="110" lean-forward="false" selection-start-line="99" selection-start-column="110" selection-end-line="99" selection-end-column="110" />
           <folding />
         </state>
       </provider>
