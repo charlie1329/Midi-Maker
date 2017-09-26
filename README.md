@@ -8,9 +8,9 @@ you need more information on the internals of MIDI,
 
 Repository Structure
 --------------------
-..* `/src` contains the source files required for MIDI file creation
-..* `/test` contains the tests for all functionality. Tests are written using [Catch](https://github.com/philsquared/Catch)
-..* `/examples` contains programs written to give example usages of the library, which, when run play the resulting midi file
+* `/src` contains the source files required for MIDI file creation
+* `/test` contains the tests for all functionality. Tests are written using [Catch](https://github.com/philsquared/Catch)
+* `/examples` contains programs written to give example usages of the library, which, when run play the resulting midi file
 
 How To Add Midi Maker To Your Project
 --------------------------------------
